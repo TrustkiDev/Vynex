@@ -1,4 +1,3 @@
-
 local tools = {}
 
 function tools.show()
@@ -13,7 +12,8 @@ function tools.show()
         print("[1] System Information")
         print("[2] Lua Information")
         print("[3] Developer Info")
-        print("[4] Back")
+        print("[4] Calculator")
+        print("[5] Back")
         print("")
 
         io.write("Choose a tool: ")
@@ -21,12 +21,10 @@ function tools.show()
 
         if choice == "1" then
             print("")
-            print("=== SYSTEM INFORMATION ===")
             print("System: Termux / Android")
 
         elseif choice == "2" then
             print("")
-            print("=== LUA INFORMATION ===")
             print("Lua version:")
             print(_VERSION)
 
@@ -39,6 +37,33 @@ function tools.show()
             print("Environment: Termux / Android")
 
         elseif choice == "4" then
+            print("")
+            print("=== VYNEX CALCULATOR ===")
+            print("")
+            
+            io.write("First number: ")
+            local a = tonumber(io.read())
+
+            io.write("Second number: ")
+            local b = tonumber(io.read())
+
+            if a and b then
+                print("")
+                print("Sum: " .. (a + b))
+                print("Subtraction: " .. (a - b))
+                print("Multiplication: " .. (a * b))
+
+                if b ~= 0 then
+                    print("Division: " .. (a / b))
+                else
+                    print("Division: impossible (zero)")
+                end
+            else
+                print("")
+                print("Invalid number.")
+            end
+
+        elseif choice == "5" then
             running = false
 
         else
